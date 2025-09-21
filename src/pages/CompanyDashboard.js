@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-import { TrendingUp, Target, AlertCircle, CheckCircle, BarChart3, Leaf, Zap, Droplets } from 'lucide-react';
+import { Target, AlertCircle, Leaf, Zap, Droplets } from 'lucide-react';
 import './Dashboard.css';
 
 const CompanyDashboard = () => {

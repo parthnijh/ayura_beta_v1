@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-import { TrendingUp, Building2, AlertTriangle, CheckCircle, Users, MapPin } from 'lucide-react';
+import { TrendingUp, Building2, AlertTriangle, CheckCircle } from 'lucide-react';
 import './Dashboard.css';
 
 const GovernmentDashboard = () => {

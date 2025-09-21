@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-import { Trophy, TrendingUp, Leaf, Award, Star, Users, MapPin, Target } from 'lucide-react';
+import { Trophy, TrendingUp, Leaf, Award, Star, Users, Target } from 'lucide-react';
 import './Dashboard.css';
 
 const CitizenDashboard = () => {
