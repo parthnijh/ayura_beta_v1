@@ -1,0 +1,264 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.login-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.login-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.login-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.login-content {
+  padding: 3rem 2rem;
+}
+
+.user-type-selection h2 {
+  font-size: 1.8rem;
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.user-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.user-type-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.user-type-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.user-type-card.selected {
+  border-color: #3b82f6;
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.user-type-card.green.selected {
+  border-color: #10b981;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+}
+
+.user-type-card.blue.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.user-type-card.purple.selected {
+  border-color: #8b5cf6;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+}
+
+.user-type-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  color: #3b82f6;
+}
+
+.user-type-card.green .user-type-icon {
+  color: #10b981;
+}
+
+.user-type-card.blue .user-type-icon {
+  color: #3b82f6;
+}
+
+.user-type-card.purple .user-type-icon {
+  color: #8b5cf6;
+}
+
+.user-type-card h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.user-type-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.login-form-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+}
+
+.login-form-section h2 {
+  font-size: 1.8rem;
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login-form {
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0.25rem;
+}
+
+.password-toggle:hover {
+  color: #374151;
+}
+
+.error-message {
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #fecaca;
+}
+
+.login-button {
+  width: 100%;
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.demo-credentials {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.demo-credentials h3 {
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.demo-credentials p {
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.demo-credentials p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    padding: 1rem;
+  }
+  
+  .login-header {
+    padding: 2rem 1rem;
+  }
+  
+  .login-header h1 {
+    font-size: 2rem;
+  }
+  
+  .login-content {
+    padding: 2rem 1rem;
+  }
+  
+  .user-types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .user-type-card {
+    padding: 1.5rem;
+  }
+}

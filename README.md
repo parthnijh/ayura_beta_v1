@@ -1,70 +1,229 @@
-# Getting Started with Create React App
+# Ayura Circularity Platform - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive React.js frontend for the Ayura Circularity Platform, designed to track and monitor aluminium industry sustainability through data-driven circularity metrics.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+### Multi-User Dashboard System
+- **Government Dashboard**: National oversight, compliance monitoring, and approval management
+- **Company Dashboard**: Performance tracking, peer comparison, and actionable recommendations
+- **Citizen Dashboard**: Gamified public access with leaderboards and environmental impact metrics
 
-### `npm start`
+### Data Management
+- **Stage-wise Data Input**: Comprehensive forms for mining, refining, smelting, fabrication, and recycling stages
+- **Real-time Validation**: Form validation with estimated circularity score calculation
+- **Progress Tracking**: Visual progress indicators for multi-stage data submission
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Advanced Visualizations
+- **Interactive Charts**: Bar charts, line charts, pie charts, and radar charts using Recharts
+- **Performance Metrics**: Circularity scores, carbon intensity, energy efficiency, and water usage
+- **Trend Analysis**: Monthly trends, state-wise comparisons, and peer benchmarking
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Modern UI/UX
+- **Responsive Design**: Mobile-first approach with adaptive layouts
+- **Accessibility**: WCAG compliant with keyboard navigation and screen reader support
+- **Modern Styling**: Clean, professional design with smooth animations and transitions
 
-### `npm test`
+## 🛠️ Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18**: Modern React with hooks and functional components
+- **React Router**: Client-side routing and navigation
+- **Recharts**: Interactive data visualization library
+- **Lucide React**: Modern icon library
+- **CSS3**: Custom styling with modern features (Grid, Flexbox, CSS Variables)
+- **Axios**: HTTP client for API communication (ready for backend integration)
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── components/
+│   ├── Navbar.js          # Main navigation component
+│   └── Navbar.css         # Navigation styles
+├── context/
+│   └── AuthContext.js     # Authentication context provider
+├── pages/
+│   ├── Home.js            # Landing page
+│   ├── Home.css           # Landing page styles
+│   ├── Login.js           # User authentication
+│   ├── Login.css          # Login page styles
+│   ├── GovernmentDashboard.js  # Government user dashboard
+│   ├── CompanyDashboard.js     # Company user dashboard
+│   ├── CitizenDashboard.js     # Citizen user dashboard
+│   ├── DataInput.js       # Company data input forms
+│   ├── DataInput.css      # Data input styles
+│   └── Dashboard.css      # Shared dashboard styles
+├── App.js                 # Main application component
+├── App.css               # Global styles and utilities
+└── index.js              # Application entry point
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ayura-frontend
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-## Learn More
+### Available Scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 👥 User Roles & Access
 
-### Code Splitting
+### Government Officials
+- **Access**: Ministry of Mines, CPCB, MoSPI, State Pollution Boards
+- **Features**: 
+  - National and state-level dashboards
+  - Company compliance monitoring
+  - Approval/rejection workflows
+  - Performance trend analysis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Company Representatives
+- **Access**: Vedanta, Hindalco, NALCO, and other aluminium companies
+- **Features**:
+  - Stage-wise performance tracking
+  - Peer comparison and benchmarking
+  - Data input and submission
+  - Actionable recommendations
 
-### Analyzing the Bundle Size
+### Citizens
+- **Access**: Public portal
+- **Features**:
+  - Gamified leaderboards
+  - Environmental impact metrics
+  - Educational content
+  - Achievement system
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📊 Key Metrics Tracked
 
-### Making a Progressive Web App
+### Environmental Metrics
+- **Carbon Intensity**: kg CO₂ per tonne of production
+- **Energy Efficiency**: kWh per tonne with renewable energy percentage
+- **Water Usage**: Litres per tonne with recycling rates
+- **Waste Recovery**: Percentage of waste/by-products recovered
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Circularity Indicators
+- **Recycled Input**: Percentage of recycled materials in production
+- **Transport Efficiency**: Logistics emissions optimization
+- **Resource Utilization**: Overall resource efficiency scores
 
-### Advanced Configuration
+## 🎨 Design System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Color Palette
+- **Primary Blue**: #1e3a8a (Deep blue for headers and primary actions)
+- **Secondary Blue**: #3b82f6 (Interactive elements and links)
+- **Success Green**: #10b981 (Positive metrics and achievements)
+- **Warning Orange**: #f59e0b (Alerts and attention items)
+- **Error Red**: #ef4444 (Errors and critical issues)
 
-### Deployment
+### Typography
+- **Font Family**: System fonts (San Francisco, Segoe UI, Roboto)
+- **Headings**: Bold weights with proper hierarchy
+- **Body Text**: Regular weight with optimal line height
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Components
+- **Cards**: Rounded corners with subtle shadows
+- **Buttons**: Gradient backgrounds with hover effects
+- **Forms**: Clean inputs with validation states
+- **Charts**: Consistent color schemes and responsive design
 
-### `npm run build` fails to minify
+## 🔧 Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Environment Variables
+Create a `.env` file in the root directory:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_ENVIRONMENT=development
+```
+
+### API Integration
+The frontend is designed to work with a Flask backend. Update the API endpoints in the components when the backend is ready:
+
+- Authentication endpoints
+- Data submission endpoints
+- Dashboard data endpoints
+- File upload endpoints
+
+## 📱 Responsive Design
+
+The application is fully responsive and optimized for:
+- **Desktop**: 1200px and above
+- **Tablet**: 768px to 1199px
+- **Mobile**: 320px to 767px
+
+## ♿ Accessibility Features
+
+- **Keyboard Navigation**: Full keyboard support for all interactive elements
+- **Screen Reader Support**: Proper ARIA labels and semantic HTML
+- **Color Contrast**: WCAG AA compliant color combinations
+- **Focus Management**: Clear focus indicators and logical tab order
+
+## 🚀 Deployment
+
+### Production Build
+```bash
+npm run build
+```
+
+### Deployment Options
+- **Netlify**: Connect your GitHub repository for automatic deployments
+- **Vercel**: Deploy with zero configuration
+- **AWS S3**: Upload the build folder to an S3 bucket
+- **Docker**: Use the included Dockerfile for containerized deployment
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Create an issue in the GitHub repository
+- Contact the development team
+- Check the documentation wiki
+
+## 🔮 Future Enhancements
+
+- **Real-time Updates**: WebSocket integration for live data updates
+- **Advanced Analytics**: Machine learning insights and predictions
+- **Mobile App**: React Native version for mobile devices
+- **Internationalization**: Multi-language support
+- **Dark Mode**: Theme switching capability
+- **Offline Support**: Progressive Web App features
+
+---
+
+Built with ❤️ for sustainable aluminium industry practices.
