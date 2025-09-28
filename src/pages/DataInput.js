@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Save, Upload, CheckCircle, AlertCircle, Calculator, BarChart3, Target } from 'lucide-react';
+import { Save, Upload, CheckCircle, AlertCircle, Calculator, BarChart3 } from 'lucide-react';
 import AY1DataProcessor from '../components/AY1DataProcessor';
 import AY2ScoringEngine from '../components/AY2ScoringEngine';
 import './DataInput.css';

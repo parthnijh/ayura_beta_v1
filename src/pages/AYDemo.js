@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Download, Upload, Settings, BarChart3, Target, Lightbulb } from 'lucide-react';
+import { Play, Download, Settings, BarChart3, Target } from 'lucide-react';
 import AY1DataProcessor from '../components/AY1DataProcessor';
 import AY2ScoringEngine from '../components/AY2ScoringEngine';
 import './AYDemo.css';
