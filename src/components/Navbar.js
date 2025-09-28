@@ -15,12 +15,12 @@ const Navbar = () => {
 
   const getDashboardLink = () => {
     switch (userType) {
+      case 'stakeholder':
+        return '/studio';
       case 'government':
-        return '/government-dashboard';
-      case 'company':
-        return '/company-dashboard';
+        return '/regulatory';
       case 'citizen':
-        return '/citizen-dashboard';
+        return '/public';
       default:
         return '/';
     }
@@ -28,10 +28,10 @@ const Navbar = () => {
 
   const getUserIcon = () => {
     switch (userType) {
+      case 'stakeholder':
+        return <Building2 className="nav-icon" />;
       case 'government':
         return <Shield className="nav-icon" />;
-      case 'company':
-        return <Building2 className="nav-icon" />;
       case 'citizen':
         return <Users className="nav-icon" />;
       default:
@@ -60,10 +60,17 @@ const Navbar = () => {
                 Dashboard
               </Link>
               
-              {userType === 'company' && (
-                <Link to="/data-input" className="nav-link">
+              {userType === 'stakeholder' && (
+                <Link to="/studio/data-input" className="nav-link">
                   <Building2 className="nav-icon" />
                   Data Input
+                </Link>
+              )}
+              
+              {userType === 'government' && (
+                <Link to="/regulatory/audit-tools" className="nav-link">
+                  <Shield className="nav-icon" />
+                  Audit Tools
                 </Link>
               )}
 
@@ -90,3 +97,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -29,6 +29,14 @@ const DataInput = () => {
       wasteGenerated: '',
       recycledInput: ''
     },
+    casting: {
+      production: '',
+      carbonIntensity: '',
+      energyConsumption: '',
+      waterUsage: '',
+      wasteGenerated: '',
+      recycledInput: ''
+    },
     fabrication: {
       production: '',
       carbonIntensity: '',
@@ -52,11 +60,12 @@ const DataInput = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const stages = [
-    { id: 'mining', name: 'Mining', icon: <Building2 /> },
-    { id: 'refining', name: 'Refining', icon: <Building2 /> },
-    { id: 'smelting', name: 'Smelting', icon: <Building2 /> },
-    { id: 'fabrication', name: 'Fabrication', icon: <Building2 /> },
-    { id: 'recycling', name: 'Recycling', icon: <Building2 /> }
+    { id: 'mining', name: 'Mining', icon: '⛏️', description: 'Bauxite extraction and processing' },
+    { id: 'refining', name: 'Refining', icon: '🏭', description: 'Alumina production from bauxite' },
+    { id: 'smelting', name: 'Smelting', icon: '🔥', description: 'Primary aluminium production' },
+    { id: 'casting', name: 'Casting', icon: '🏗️', description: 'Aluminium ingot and billet production' },
+    { id: 'fabrication', name: 'Fabrication', icon: '⚙️', description: 'Product manufacturing and shaping' },
+    { id: 'recycling', name: 'Recycling', icon: '♻️', description: 'Scrap processing and reuse' }
   ];
 
   const fields = [
@@ -294,3 +303,5 @@ const DataInput = () => {
 };
 
 export default DataInput;
+
+

@@ -14,22 +14,22 @@ const Login = () => {
 
   const userTypes = [
     {
-      type: 'government',
-      title: 'Government Official',
-      description: 'Ministry of Mines, CPCB, MoSPI, State Pollution Boards',
-      icon: <Shield className="user-type-icon" />,
-      color: 'green'
-    },
-    {
-      type: 'company',
-      title: 'Company Representative',
+      type: 'stakeholder',
+      title: 'Value Chain Stakeholders',
       description: 'Vedanta, Hindalco, NALCO, and other aluminium companies',
       icon: <Building2 className="user-type-icon" />,
       color: 'blue'
     },
     {
+      type: 'government',
+      title: 'Government Regulatory Bodies',
+      description: 'Ministry of Mines, CPCB, MoSPI, State Pollution Boards',
+      icon: <Shield className="user-type-icon" />,
+      color: 'green'
+    },
+    {
       type: 'citizen',
-      title: 'Citizen',
+      title: 'Citizens',
       description: 'Public access to view circularity scores and trends',
       icon: <Users className="user-type-icon" />,
       color: 'purple'
@@ -63,14 +63,14 @@ const Login = () => {
 
     // Navigate to appropriate dashboard
     switch (userType) {
-      case 'government':
-        navigate('/government-dashboard');
+      case 'stakeholder':
+        navigate('/studio');
         break;
-      case 'company':
-        navigate('/company-dashboard');
+      case 'government':
+        navigate('/regulatory');
         break;
       case 'citizen':
-        navigate('/citizen-dashboard');
+        navigate('/public');
         break;
       default:
         navigate('/');
@@ -168,3 +168,4 @@ const Login = () => {
 };
 
 export default Login;
+

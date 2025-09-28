@@ -4,10 +4,11 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import GovernmentDashboard from './pages/GovernmentDashboard';
-import CompanyDashboard from './pages/CompanyDashboard';
-import CitizenDashboard from './pages/CitizenDashboard';
+import StudioDashboard from './pages/StudioDashboard';
+import RegulatoryDashboard from './pages/RegulatoryDashboard';
+import PublicDashboard from './pages/PublicDashboard';
 import DataInput from './pages/DataInput';
+import AuditTools from './pages/AuditTools';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -20,10 +21,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/government-dashboard" element={<GovernmentDashboard />} />
-              <Route path="/company-dashboard" element={<CompanyDashboard />} />
-              <Route path="/citizen-dashboard" element={<CitizenDashboard />} />
-              <Route path="/data-input" element={<DataInput />} />
+              {/* Studio Interface - Value Chain Stakeholders */}
+              <Route path="/studio" element={<StudioDashboard />} />
+              <Route path="/studio/data-input" element={<DataInput />} />
+              {/* Regulatory Interface - Government Bodies */}
+              <Route path="/regulatory" element={<RegulatoryDashboard />} />
+              <Route path="/regulatory/audit-tools" element={<AuditTools />} />
+              {/* Public Interface - Citizens */}
+              <Route path="/public" element={<PublicDashboard />} />
             </Routes>
           </main>
         </div>
