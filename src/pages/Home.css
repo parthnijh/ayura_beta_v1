@@ -39,6 +39,106 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header/Navbar Styles */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.logo-subtitle {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  border-radius: 0;
+}
+
+.login-btn {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  color: var(--white);
+}
+
 /* Ensure the home component takes full space */
 .home {
   width: 100%;
@@ -55,7 +155,7 @@ body {
 /* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, #ff6b35 0%, #0ea5e9 100%);
-  color: #ffffff;
+  color: #ff6b35;
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
@@ -98,22 +198,23 @@ body {
   font-weight: 900;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
-  color: black;
+  color: #ff6b35; /* Fixed: Changed from black to white for better contrast */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added text shadow for better readability */
 }
 
 .hero-subtitle {
   display: block;
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: ff6b35;
   margin-top: 0.5rem;
 }
 
 .hero-description {
+  color: black; /* Improved: Increased opacity for better visibility */
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 1.5rem 0 2rem 0;
-  color: rgba(255, 255, 255, 0.95);
   max-width: 600px;
 }
 
@@ -157,26 +258,27 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   background: #f8fafc;
+  color: #ff6b35; /* Ensure color stays consistent on hover */
 }
 
 .btn-outline {
   background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #ff6b35;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Improved: Increased border opacity */
   backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.6); /* Improved: Increased border opacity on hover */
   transform: translateY(-2px);
-  color: #ffffff;
+  color: #ff6b35;
 }
 
 .btn-accent {
   background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ff6b35;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Improved: Increased border opacity */
   padding: 0.8rem 1.2rem;
   font-size: 0.9rem;
   backdrop-filter: blur(10px);
@@ -185,7 +287,7 @@ body {
 .btn-accent:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
-  color: #ffffff;
+  color: #ff6b35;
 }
 
 /* Hero Badges */
@@ -196,12 +298,14 @@ body {
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15); /* Improved: Increased opacity */
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 500;
+  color: ff6b35;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Added: Subtle border for definition */
 }
 
 /* Circularity Visual */
@@ -225,13 +329,13 @@ body {
   z-index: 10;
   width: 100px;
   height: 100px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15); /* Improved: Increased opacity */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Improved: Increased border opacity */
 }
 
 .visual-rings {
@@ -247,7 +351,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Improved: Increased opacity */
   border-radius: 50%;
   animation: pulse 4s ease-in-out infinite;
 }
@@ -272,11 +376,11 @@ body {
 
 @keyframes pulse {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.4; /* Improved: Increased base opacity */
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.7; /* Improved: Increased peak opacity */
     transform: translate(-50%, -50%) scale(1.05);
   }
 }
@@ -298,7 +402,7 @@ body {
 .section-description {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--gray-600);
+  color: var(--gray-700); /* Improved: Darker color for better readability */
   max-width: 600px;
   margin: 0 auto 3rem auto;
 }
@@ -351,7 +455,7 @@ body {
 
 .stat-label {
   font-size: 0.9rem;
-  color: var(--gray-600);
+  color: var(--gray-700); /* Improved: Darker color for better readability */
   font-weight: 500;
 }
 
@@ -463,12 +567,12 @@ body {
 
 .portal-subtitle {
   font-size: 0.9rem;
-  color: var(--gray-600);
+  color: var(--gray-700); /* Improved: Darker color for better readability */
   font-weight: 500;
 }
 
 .portal-description {
-  color: var(--gray-700);
+  color: var(--gray-800); /* Improved: Darker color for better readability */
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -482,7 +586,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
-  color: var(--gray-700);
+  color: var(--gray-800); /* Improved: Darker color for better readability */
   font-size: 0.9rem;
 }
 
@@ -509,6 +613,7 @@ body {
 .portal-link:hover {
   background: var(--gray-700);
   transform: translateY(-1px);
+  color: var(--white); /* Ensure color stays white on hover */
 }
 
 /* Initiatives Section */
@@ -557,7 +662,7 @@ body {
 }
 
 .initiative-description {
-  color: var(--gray-600);
+  color: var(--gray-700); /* Improved: Darker color for better readability */
   line-height: 1.6;
 }
 
@@ -609,7 +714,7 @@ body {
 }
 
 .step-description {
-  color: var(--gray-600);
+  color: var(--gray-700); /* Improved: Darker color for better readability */
   line-height: 1.6;
 }
 
@@ -633,6 +738,22 @@ body {
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+  }
+  
+  .header-content {
+    padding: 0 1rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .logo-title {
+    font-size: 1.25rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 0.75rem;
   }
   
   .hero-section {
@@ -675,6 +796,21 @@ body {
 }
 
 @media (max-width: 480px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .logo-title {
+    font-size: 1.1rem;
+  }
+  
   .hero-title {
     font-size: 2rem;
   }
