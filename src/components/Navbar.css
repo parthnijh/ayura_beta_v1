@@ -1,4 +1,17 @@
 /* Government Portal Navbar Styles */
+.gov-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.gov-logo:hover {
+  opacity: 0.8;
+}
+
 .logo-icon {
   display: flex;
   align-items: center;

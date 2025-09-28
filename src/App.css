@@ -15,33 +15,33 @@ body {
   font-size: 14px;
 }
 
-/* Enhanced Indian Government Color Scheme - Darker & More Professional */
+/* Sophisticated Dark Government Color Scheme */
 :root {
   --primary-color: #ff6b35;
   --primary-dark: #e55a2b;
   --primary-light: #ff8a65;
-  --secondary-color: #1a365d;
-  --secondary-dark: #153450;
-  --secondary-light: #2c5282;
+  --secondary-color: #0f172a;
+  --secondary-dark: #020617;
+  --secondary-light: #1e293b;
   --accent-color: #f59e0b;
   --accent-dark: #d97706;
-  --success-color: #059669;
-  --success-dark: #047857;
-  --warning-color: #d97706;
-  --warning-dark: #b45309;
-  --danger-color: #dc2626;
-  --danger-dark: #b91c1c;
-  --info-color: #2563eb;
-  --info-dark: #1d4ed8;
+  --success-color: #047857;
+  --success-dark: #065f46;
+  --warning-color: #b45309;
+  --warning-dark: #92400e;
+  --danger-color: #b91c1c;
+  --danger-dark: #991b1b;
+  --info-color: #1e40af;
+  --info-dark: #1e3a8a;
   
-  /* Darker Background Colors */
-  --light-bg: #f1f5f9;
+  /* Sophisticated Background Colors */
+  --light-bg: #f8fafc;
   --dark-bg: #0f172a;
   --card-bg: #ffffff;
   --card-bg-dark: #1e293b;
   --white: #ffffff;
   
-  /* Enhanced Gray Scale */
+  /* Professional Gray Scale */
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
@@ -53,13 +53,14 @@ body {
   --gray-800: #1e293b;
   --gray-900: #0f172a;
   
-  /* Border and Shadow Colors */
+  /* Enhanced Border and Shadow Colors */
   --border-color: #e2e8f0;
   --border-color-dark: #334155;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 code {

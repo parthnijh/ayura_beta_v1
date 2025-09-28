@@ -69,7 +69,7 @@ const Navbar = () => {
         <div className="gov-container">
           <div className="gov-header-main">
             <div className="flex justify-between items-center">
-              <div className="gov-logo">
+              <Link to="/" className="gov-logo">
                 <div className="logo-icon">
                   <Shield size={60} color="#ff6b35" />
                 </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
                   <p>Aluminium Circularity & Sustainability Portal</p>
                   <p className="logo-subtitle">Government of India Initiative</p>
                 </div>
-              </div>
+              </Link>
               
               <div className="header-actions">
                 {isAuthenticated ? (
