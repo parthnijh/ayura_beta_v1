@@ -13,7 +13,7 @@ const Footer = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/public">Public Portal</Link></li>
               <li><Link to="/login">Login</Link></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">
+              <li><a href="mailto:support@ayura.gov.in" target="_blank" rel="noopener noreferrer">
                 Help & Support <ExternalLink size={12} />
               </a></li>
             </ul>
@@ -32,16 +32,16 @@ const Footer = () => {
           <div className="gov-footer-section">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">
+              <li><a href="https://ayura.gov.in/guidelines" target="_blank" rel="noopener noreferrer">
                 Guidelines <ExternalLink size={12} />
               </a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">
+              <li><a href="https://ayura.gov.in/docs" target="_blank" rel="noopener noreferrer">
                 Documentation <ExternalLink size={12} />
               </a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">
+              <li><a href="https://ayura.gov.in/api" target="_blank" rel="noopener noreferrer">
                 API Reference <ExternalLink size={12} />
               </a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer">
+              <li><a href="https://ayura.gov.in/training" target="_blank" rel="noopener noreferrer">
                 Training Materials <ExternalLink size={12} />
               </a></li>
             </ul>
@@ -74,9 +74,9 @@ const Footer = () => {
               <span>© 2024 Government of India. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-gray-300 hover:text-white">Privacy Policy</a>
-              <a href="#" className="text-gray-300 hover:text-white">Terms of Service</a>
-              <a href="#" className="text-gray-300 hover:text-white">Accessibility</a>
+              <a href="https://ayura.gov.in/privacy" className="text-gray-300 hover:text-white">Privacy Policy</a>
+              <a href="https://ayura.gov.in/terms" className="text-gray-300 hover:text-white">Terms of Service</a>
+              <a href="https://ayura.gov.in/accessibility" className="text-gray-300 hover:text-white">Accessibility</a>
             </div>
           </div>
         </div>
