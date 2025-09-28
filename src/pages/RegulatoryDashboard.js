@@ -5,20 +5,16 @@ import {
   FileText, 
   Search, 
   Download, 
-  TrendingUp, 
   AlertTriangle,
   CheckCircle,
   Clock,
   BarChart3,
-  Users,
   Building2,
   MapPin,
   Calendar,
   Filter,
   Eye,
-  ArrowRight,
-  Award,
-  Target
+  ArrowRight
 } from 'lucide-react';
 import './RegulatoryDashboard.css';
 

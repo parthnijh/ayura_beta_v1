@@ -11,15 +11,12 @@ import {
   Download,
   Eye,
   Edit,
-  Trash2,
   Plus,
   Search,
   Filter,
   ArrowLeft,
-  ArrowRight,
   Users,
-  Target,
-  Award
+  Target
 } from 'lucide-react';
 import './AuditTools.css';
 

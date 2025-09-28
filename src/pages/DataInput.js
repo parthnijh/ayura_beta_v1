@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Save, Upload, CheckCircle, AlertCircle, Calculator } from 'lucide-react';
+import { Save, Upload, CheckCircle, AlertCircle, Calculator } from 'lucide-react';
 import './DataInput.css';
 
 const DataInput = () => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Building2, 
   TrendingUp, 
   Award, 
   BarChart3, 
@@ -19,7 +18,7 @@ import './StudioDashboard.css';
 
 const StudioDashboard = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [selectedStage, setSelectedStage] = useState('all');
+  const [selectedStage] = useState('all');
 
   useEffect(() => {
     const timer = setInterval(() => {
