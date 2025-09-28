@@ -1,104 +1,158 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Users, Shield, TrendingUp, BarChart3, Leaf } from 'lucide-react';
+import { Building2, Users, Shield, TrendingUp, BarChart3, Leaf, ArrowRight, CheckCircle, Globe, Target, Award } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
-  const features = [
+  const portals = [
     {
-      icon: <Building2 className="feature-icon" />,
-      title: "Company Portal",
-      description: "Track your circularity scores, input production data, and get actionable recommendations.",
+      icon: <Building2 className="portal-icon" />,
+      title: "Stakeholder Portal",
+      subtitle: "For Industry & Companies",
+      description: "Submit production data, track circularity scores, and access sustainability insights for your aluminium operations.",
+      features: ["Data Submission", "Performance Tracking", "Sustainability Reports", "Compliance Monitoring"],
       link: "/login",
-      color: "blue"
+      color: "primary"
     },
     {
-      icon: <Shield className="feature-icon" />,
-      title: "Government Dashboard",
-      description: "Monitor compliance, view national trends, and manage approvals across all companies.",
+      icon: <Shield className="portal-icon" />,
+      title: "Regulatory Portal",
+      subtitle: "For Government Bodies",
+      description: "Monitor industry compliance, conduct audits, and manage regulatory oversight across all aluminium companies.",
+      features: ["Compliance Monitoring", "Audit Management", "Regulatory Reports", "Policy Implementation"],
       link: "/login",
-      color: "green"
+      color: "secondary"
     },
     {
-      icon: <Users className="feature-icon" />,
-      title: "Citizen Portal",
-      description: "Explore gamified dashboards, view company performance, and understand environmental impact.",
-      link: "/login",
-      color: "purple"
+      icon: <Users className="portal-icon" />,
+      title: "Public Portal",
+      subtitle: "For Citizens & Researchers",
+      description: "Explore industry performance, access public data, and understand environmental impact of aluminium production.",
+      features: ["Public Data Access", "Industry Insights", "Environmental Impact", "Research Resources"],
+      link: "/public",
+      color: "accent"
     }
   ];
 
   const stats = [
-    { label: "Companies Tracked", value: "50+", icon: <Building2 /> },
-    { label: "States Monitored", value: "15+", icon: <Shield /> },
-    { label: "Circularity Score", value: "85%", icon: <TrendingUp /> },
-    { label: "CO₂ Reduced", value: "2.5M", icon: <Leaf /> }
+    { label: "Registered Companies", value: "156", icon: <Building2 />, trend: "+12%" },
+    { label: "States Covered", value: "15", icon: <Globe />, trend: "100%" },
+    { label: "Average Circularity Score", value: "87%", icon: <TrendingUp />, trend: "+5%" },
+    { label: "CO₂ Emissions Reduced", value: "2.5M", icon: <Leaf />, trend: "-15%" }
+  ];
+
+  const initiatives = [
+    {
+      title: "Digital India Initiative",
+      description: "Part of the Government of India's Digital India program for transparent governance",
+      icon: <Globe />
+    },
+    {
+      title: "Make in India",
+      description: "Supporting sustainable manufacturing practices in the aluminium industry",
+      icon: <Target />
+    },
+    {
+      title: "Swachh Bharat Mission",
+      description: "Contributing to waste reduction and circular economy principles",
+      icon: <Award />
+    }
   ];
 
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Ayura Circularity Platform
-          </h1>
-          <p className="hero-subtitle">
-            Transforming aluminium industry sustainability through data-driven circularity tracking, 
-            government oversight, and citizen engagement.
-          </p>
-          <div className="hero-buttons">
-            <Link to="/login" className="btn btn-primary">
-              Get Started
-            </Link>
-            <Link to="/citizen-dashboard" className="btn btn-secondary">
-              View Public Dashboard
-            </Link>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="circularity-wheel">
-            <div className="wheel-center">
-              <BarChart3 className="wheel-icon" />
+      <section className="hero-section">
+        <div className="gov-container">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1 className="hero-title">
+                AYURA
+                <span className="hero-subtitle">Aluminium Circularity & Sustainability Portal</span>
+              </h1>
+              <p className="hero-description">
+                A comprehensive digital platform for monitoring and managing aluminium industry sustainability 
+                across the entire value chain. Supporting India's commitment to environmental stewardship and 
+                circular economy principles.
+              </p>
+              <div className="hero-actions">
+                <Link to="/login" className="btn btn-primary btn-lg">
+                  Access Portal
+                  <ArrowRight size={20} />
+                </Link>
+                <Link to="/public" className="btn btn-secondary btn-lg">
+                  View Public Data
+                </Link>
+              </div>
             </div>
-            <div className="wheel-ring"></div>
-            <div className="wheel-ring-2"></div>
+            <div className="hero-visual">
+              <div className="circularity-visual">
+                <div className="visual-center">
+                  <Shield size={80} color="#ff6b35" />
+                </div>
+                <div className="visual-rings">
+                  <div className="ring ring-1"></div>
+                  <div className="ring ring-2"></div>
+                  <div className="ring ring-3"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Key Statistics */}
       <section className="stats-section">
-        <div className="container">
+        <div className="gov-container">
+          <h2 className="section-title">Platform Statistics</h2>
           <div className="stats-grid">
             {stats.map((stat, index) => (
               <div key={index} className="stat-card">
                 <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
+                <div className="stat-content">
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
+                  <div className="stat-trend positive">{stat.trend}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="container">
-          <h2 className="section-title">Platform Access</h2>
-          <p className="section-subtitle">
-            Choose your role to access the appropriate dashboard and features
-          </p>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className={`feature-card ${feature.color}`}>
-                <div className="feature-header">
-                  {feature.icon}
-                  <h3 className="feature-title">{feature.title}</h3>
+      {/* Portal Access */}
+      <section className="portals-section">
+        <div className="gov-container">
+          <div className="section-header">
+            <h2 className="section-title">Portal Access</h2>
+            <p className="section-subtitle">
+              Choose your role to access the appropriate portal and features
+            </p>
+          </div>
+          <div className="portals-grid">
+            {portals.map((portal, index) => (
+              <div key={index} className={`portal-card ${portal.color}`}>
+                <div className="portal-header">
+                  <div className="portal-icon-container">
+                    {portal.icon}
+                  </div>
+                  <div className="portal-title-section">
+                    <h3 className="portal-title">{portal.title}</h3>
+                    <p className="portal-subtitle">{portal.subtitle}</p>
+                  </div>
                 </div>
-                <p className="feature-description">{feature.description}</p>
-                <Link to={feature.link} className="feature-link">
-                  Access Portal →
+                <p className="portal-description">{portal.description}</p>
+                <div className="portal-features">
+                  {portal.features.map((feature, idx) => (
+                    <div key={idx} className="feature-item">
+                      <CheckCircle size={16} />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link to={portal.link} className="portal-link">
+                  Access Portal
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             ))}
@@ -106,30 +160,54 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="how-it-works">
-        <div className="container">
+      {/* Government Initiatives */}
+      <section className="initiatives-section">
+        <div className="gov-container">
+          <h2 className="section-title">Government Initiatives</h2>
+          <div className="initiatives-grid">
+            {initiatives.map((initiative, index) => (
+              <div key={index} className="initiative-card">
+                <div className="initiative-icon">{initiative.icon}</div>
+                <h3 className="initiative-title">{initiative.title}</h3>
+                <p className="initiative-description">{initiative.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="process-section">
+        <div className="gov-container">
           <h2 className="section-title">How It Works</h2>
           <div className="process-steps">
-            <div className="step">
+            <div className="process-step">
               <div className="step-number">1</div>
-              <h3>Data Collection</h3>
-              <p>Companies input stage-wise production and environmental data monthly</p>
+              <div className="step-content">
+                <h3>Data Collection</h3>
+                <p>Companies submit monthly production and environmental data across all six stages of aluminium processing</p>
+              </div>
             </div>
-            <div className="step">
+            <div className="process-step">
               <div className="step-number">2</div>
-              <h3>Verification & ML</h3>
-              <p>AI models verify data, detect anomalies, and predict missing values</p>
+              <div className="step-content">
+                <h3>AI Verification</h3>
+                <p>Machine learning models verify data accuracy, detect anomalies, and predict missing values</p>
+              </div>
             </div>
-            <div className="step">
+            <div className="process-step">
               <div className="step-number">3</div>
-              <h3>LCA Scoring</h3>
-              <p>Calculate circularity scores based on carbon intensity, energy efficiency, and waste recovery</p>
+              <div className="step-content">
+                <h3>Circularity Scoring</h3>
+                <p>Calculate comprehensive circularity scores based on carbon intensity, energy efficiency, and waste recovery</p>
+              </div>
             </div>
-            <div className="step">
+            <div className="process-step">
               <div className="step-number">4</div>
-              <h3>Dashboard & Insights</h3>
-              <p>Real-time dashboards for companies, government oversight, and citizen engagement</p>
+              <div className="step-content">
+                <h3>Dashboard & Insights</h3>
+                <p>Real-time dashboards provide insights for companies, government oversight, and public transparency</p>
+              </div>
             </div>
           </div>
         </div>
