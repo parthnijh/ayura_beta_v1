@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, BarChart3, Target, Award, Lightbulb } from 'lucide-react';
+import { TrendingUp, BarChart3, Lightbulb } from 'lucide-react';
 import { ay2Score, generateRecommendations } from '../utils/ay2ScoringEngine';
 import './AY2ScoringEngine.css';
 

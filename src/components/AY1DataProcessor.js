@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, AlertTriangle, Info, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { ay1Clean } from '../utils/ay1DataProcessor';
 import './AY1DataProcessor.css';
 
