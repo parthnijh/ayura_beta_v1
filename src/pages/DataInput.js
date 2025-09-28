@@ -301,20 +301,25 @@ const DataInput = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) {
       return;
     }
-
     setIsSubmitting(true);
     setSubmitStatus(null);
-
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setSubmitStatus('success');
-      console.log('Form submitted:', formData[currentStage]);
+      const response = await fetch('http://localhost:5001/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData[currentStage])
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        console.log('Form submitted to backend:', formData[currentStage]);
+      } else {
+        setSubmitStatus('error');
+        console.error('Backend error:', result.message);
+      }
     } catch (error) {
       setSubmitStatus('error');
       console.error('Submission error:', error);
