@@ -22,6 +22,10 @@
   font-size: 1.1rem;
 }
 
+.header-actions {
+  margin-top: 1rem;
+}
+
 .data-input-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -481,6 +485,54 @@
     width: 32px;
     height: 32px;
     font-size: 0.875rem;
+  }
+}
+
+/* AY System Integration */
+.ay-system-section {
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+  padding: 0 2rem;
+}
+
+.ay-system-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.ay-system-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.ay-system-header p {
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.ay-system-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .ay-system-section {
+    padding: 0 1rem;
+  }
+  
+  .ay-system-header {
+    padding: 1.5rem;
+  }
+  
+  .ay-system-header h2 {
+    font-size: 1.5rem;
   }
 }
 

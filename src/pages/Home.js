@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Users, Shield, TrendingUp, Leaf, ArrowRight, CheckCircle, Globe, Target, Award } from 'lucide-react';
+import { Building2, Users, Shield, TrendingUp, Leaf, ArrowRight, CheckCircle, Globe, Target, Award, BarChart3 } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -82,6 +82,10 @@ const Home = () => {
                 </Link>
                 <Link to="/public" className="btn btn-secondary btn-lg">
                   View Public Data
+                </Link>
+                <Link to="/ay-demo" className="btn btn-accent btn-lg">
+                  <BarChart3 size={20} />
+                  AI Demo System
                 </Link>
               </div>
             </div>

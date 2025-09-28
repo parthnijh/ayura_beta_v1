@@ -10,6 +10,7 @@ import RegulatoryDashboard from './pages/RegulatoryDashboard';
 import PublicDashboard from './pages/PublicDashboard';
 import DataInput from './pages/DataInput';
 import AuditTools from './pages/AuditTools';
+import AYDemo from './pages/AYDemo';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
               <Route path="/regulatory/audit-tools" element={<AuditTools />} />
               {/* Public Interface - Citizens */}
               <Route path="/public" element={<PublicDashboard />} />
+              {/* AY Demo System */}
+              <Route path="/ay-demo" element={<AYDemo />} />
             </Routes>
           </main>
           <Footer />

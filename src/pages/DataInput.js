@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Save, Upload, CheckCircle, AlertCircle, Calculator } from 'lucide-react';
+import { Save, Upload, CheckCircle, AlertCircle, Calculator, BarChart3, Target } from 'lucide-react';
+import AY1DataProcessor from '../components/AY1DataProcessor';
+import AY2ScoringEngine from '../components/AY2ScoringEngine';
 import './DataInput.css';
 
 const DataInput = () => {
@@ -58,6 +60,8 @@ const DataInput = () => {
   const [validationErrors, setValidationErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [showAYSystem, setShowAYSystem] = useState(false);
+  const [processedData, setProcessedData] = useState(null);
 
   const stages = [
     { id: 'mining', name: 'Mining', icon: '⛏️', description: 'Bauxite extraction and processing' },
@@ -156,11 +160,51 @@ const DataInput = () => {
 
   const estimatedScore = calculateEstimatedScore();
 
+  // Convert form data to AY system format
+  const convertToAYFormat = () => {
+    const selectedStages = [];
+    const ayData = { region: "India", stages: selectedStages };
+    const volumes = {};
+
+    stages.forEach(stage => {
+      const data = formData[stage.id];
+      if (data.production && data.carbonIntensity && data.energyConsumption) {
+        const stageName = stage.id === 'smelting' ? 'Smelting_Primary' : 
+                         stage.id.charAt(0).toUpperCase() + stage.id.slice(1);
+        
+        selectedStages.push(stageName);
+        volumes[stageName] = parseFloat(data.production) || 0;
+        
+        ayData[stageName] = {
+          energy_kWh_per_t: parseFloat(data.energyConsumption) || 0,
+          ghg_tCO2e_per_t: parseFloat(data.carbonIntensity) / 1000 || 0, // Convert kg to tonnes
+          water_m3_per_t: (parseFloat(data.waterUsage) || 0) / 1000, // Convert litres to m³
+          renewable_pct: parseFloat(data.recycledInput) || 0
+        };
+      }
+    });
+
+    return { ayData, volumes };
+  };
+
+  const handleAYProcessing = (result) => {
+    setProcessedData(result.cleaned);
+  };
+
   return (
     <div className="data-input-page">
       <div className="data-input-header">
         <h1>Data Input Portal</h1>
         <p>Submit your monthly production and environmental data</p>
+        <div className="header-actions">
+          <button 
+            className="btn btn-primary"
+            onClick={() => setShowAYSystem(!showAYSystem)}
+          >
+            <BarChart3 size={16} />
+            {showAYSystem ? 'Hide' : 'Show'} AI Analysis
+          </button>
+        </div>
       </div>
 
       <div className="data-input-container">
@@ -298,6 +342,36 @@ const DataInput = () => {
           </div>
         </div>
       </div>
+
+      {/* AY System Integration */}
+      {showAYSystem && (
+        <div className="ay-system-section">
+          <div className="ay-system-header">
+            <h2>AI-Powered Circularity Assessment</h2>
+            <p>Advanced data processing and scoring using the AY system</p>
+          </div>
+          
+          <div className="ay-system-content">
+            {(() => {
+              const { ayData, volumes } = convertToAYFormat();
+              return (
+                <>
+                  <AY1DataProcessor 
+                    data={ayData} 
+                    onProcessed={handleAYProcessing}
+                  />
+                  {processedData && (
+                    <AY2ScoringEngine 
+                      cleanedData={processedData} 
+                      stageVolumes={volumes}
+                    />
+                  )}
+                </>
+              );
+            })()}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
