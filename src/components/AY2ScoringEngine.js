@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, BarChart3, Lightbulb } from 'lucide-react';
-import { ay2Score, generateRecommendations } from '../utils/ay2ScoringEngine';
+import { TrendingUp, BarChart3, Lightbulb, RefreshCw } from 'lucide-react';
 import './AY2ScoringEngine.css';
 
-const AY2ScoringEngine = ({ cleanedData, stageVolumes = null }) => {
-  const [scoringResult, setScoringResult] = useState(null);
-  const [recommendations, setRecommendations] = useState(null);
-  const [showRecommendations, setShowRecommendations] = useState(false);
+const AY2ScoringEngine = () => {
+  const [predictedScore, setPredictedScore] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Function to fetch predicted score from backend
+  const fetchPredictedScore = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('http://localhost:5001/predict-latest');
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+      const data = await response.json();
+      setPredictedScore(data.predicted_score);
+    } catch (err) {
+      setError(err.message || 'Failed to fetch predicted score');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    if (cleanedData) {
-      const result = ay2Score(cleanedData, stageVolumes);
-      setScoringResult(result);
-      
-      const recs = generateRecommendations(cleanedData, result.overall, stageVolumes);
-      setRecommendations(recs);
-    }
-  }, [cleanedData, stageVolumes]);
+    fetchPredictedScore();
+  }, []);
 
   const getScoreColor = (score) => {
     if (score >= 80) return 'excellent';
@@ -34,18 +45,6 @@ const AY2ScoringEngine = ({ cleanedData, stageVolumes = null }) => {
     return 'Critical';
   };
 
-  if (!scoringResult) {
-    return (
-      <div className="ay2-scoring">
-        <div className="scoring-placeholder">
-          <BarChart3 size={48} color="var(--gray-400)" />
-          <h3>AY-2 Scoring Engine</h3>
-          <p>Process data through AY-1 to generate circularity scores</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="ay2-scoring">
       <div className="scoring-header">
@@ -61,126 +60,36 @@ const AY2ScoringEngine = ({ cleanedData, stageVolumes = null }) => {
         </div>
       </div>
 
-      {/* Overall Score */}
       <div className="overall-score-section">
-        <div className="score-display">
-          <div className="score-circle">
-            <div className={`score-value ${getScoreColor(scoringResult.overall)}`}>
-              {scoringResult.overall}
-            </div>
-            <div className="score-label">Overall Score</div>
+        {loading ? (
+          <div className="loading-score">
+            <RefreshCw size={48} className="spin" />
+            <p>Calculating score...</p>
           </div>
-          <div className="score-details">
-            <h4>{getScoreLabel(scoringResult.overall)} Performance</h4>
-            <p>Based on emissions, energy efficiency, water usage, and renewable energy adoption across all production stages.</p>
-            <div className="score-breakdown">
-              <div className="breakdown-item">
-                <span className="breakdown-label">Emissions</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill emissions"></div>
-                </div>
-                <span className="breakdown-value">40%</span>
+        ) : error ? (
+          <div className="error-score">
+            <p>Error: {error}</p>
+          </div>
+        ) : predictedScore !== null ? (
+          <div className="score-display">
+            <div className="score-circle">
+              <div className={`score-value ${getScoreColor(predictedScore)}`}>
+                {predictedScore}
               </div>
-              <div className="breakdown-item">
-                <span className="breakdown-label">Energy</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill energy"></div>
-                </div>
-                <span className="breakdown-value">40%</span>
-              </div>
-              <div className="breakdown-item">
-                <span className="breakdown-label">Water</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill water"></div>
-                </div>
-                <span className="breakdown-value">10%</span>
-              </div>
-              <div className="breakdown-item">
-                <span className="breakdown-label">Renewables</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill renewables"></div>
-                </div>
-                <span className="breakdown-value">10%</span>
-              </div>
+              <div className="score-label">Predicted Score</div>
+            </div>
+            <div className="score-details">
+              <h4>{getScoreLabel(predictedScore)} Performance</h4>
+              <p>
+                This score is generated by our AI model based on the latest production stage data from the database.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Stage Details */}
-      <div className="stage-details-section">
-        <h4>Stage-by-Stage Analysis</h4>
-        <div className="stages-grid">
-          {Object.entries(scoringResult.detail).map(([stage, details]) => (
-            <div key={stage} className="stage-card">
-              <div className="stage-header">
-                <h5>{stage.replace('_', ' ')}</h5>
-                <div className={`stage-score ${getScoreColor(details.score)}`}>
-                  {details.score}
-                </div>
-              </div>
-              <div className="stage-weight">
-                Weight: {(details.weight * 100).toFixed(1)}%
-              </div>
-              <div className="stage-breakdown">
-                <div className="breakdown-grid">
-                  <div className="breakdown-metric">
-                    <span className="metric-label">Energy</span>
-                    <span className="metric-value">{details.breakdown.E}</span>
-                  </div>
-                  <div className="breakdown-metric">
-                    <span className="metric-label">GHG</span>
-                    <span className="metric-value">{details.breakdown.G}</span>
-                  </div>
-                  <div className="breakdown-metric">
-                    <span className="metric-label">Water</span>
-                    <span className="metric-value">{details.breakdown.W}</span>
-                  </div>
-                  <div className="breakdown-metric">
-                    <span className="metric-label">Renewables</span>
-                    <span className="metric-value">{details.breakdown.R}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Recommendations */}
-      <div className="recommendations-section">
-        <div className="recommendations-header">
-          <h4>AY-3 Improvement Recommendations</h4>
-          <button 
-            className="btn btn-secondary"
-            onClick={() => setShowRecommendations(!showRecommendations)}
-          >
-            {showRecommendations ? 'Hide' : 'Show'} Recommendations
-          </button>
-        </div>
-        
-        {showRecommendations && recommendations && (
-          <div className="recommendations-grid">
-            {recommendations.map((rec, index) => (
-              <div key={index} className="recommendation-card">
-                <div className="recommendation-header">
-                  <div className="recommendation-rank">#{index + 1}</div>
-                  <div className="recommendation-impact">
-                    <TrendingUp size={16} />
-                    <span>+{rec.delta} points</span>
-                  </div>
-                </div>
-                <h5>{rec.action}</h5>
-                <div className="recommendation-score">
-                  <span className="current-score">{scoringResult.overall}</span>
-                  <span className="arrow">→</span>
-                  <span className="new-score">{rec.new_score}</span>
-                </div>
-                <div className="recommendation-description">
-                  This intervention would improve your overall circularity score by {rec.delta} points.
-                </div>
-              </div>
-            ))}
+        ) : (
+          <div className="scoring-placeholder">
+            <BarChart3 size={48} color="var(--gray-400)" />
+            <h3>AY-2 Scoring Engine</h3>
+            <p>No prediction available yet</p>
           </div>
         )}
       </div>
