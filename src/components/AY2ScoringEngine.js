@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, BarChart3, Lightbulb, RefreshCw } from 'lucide-react';
+import {  BarChart3, Lightbulb, RefreshCw } from 'lucide-react';
 import './AY2ScoringEngine.css';
 
 const AY2ScoringEngine = () => {
